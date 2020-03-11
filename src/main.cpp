@@ -61,7 +61,7 @@ int main([[maybe_unused]] int argc, [[maybe_unused]] const char **argv)
         "9 : Dialog Trees",
         "10 : Porting from SFML to SDL"
       };
-      auto CURRENT_STEP = 1u;
+      auto CURRENT_STEP = 2u;
       for(auto &&[item, index] : zip(plan_items, ints(0u, ranges::unreachable)))
       {
         auto checked = index < CURRENT_STEP;
