@@ -20,6 +20,11 @@ int main([[maybe_unused]] int argc, [[maybe_unused]] const char **argv)
   window.setFramerateLimit(60);
   ImGui::SFML::Init(window);
 
+  // Set ImGui scale
+  constexpr auto scale_factor = 2.0;
+  ImGui::GetStyle().ScaleAllSizes(scale_factor);
+  ImGui::GetIO().FontGlobalScale = scale_factor;
+
   sf::CircleShape shape(100.f);
   shape.setFillColor(sf::Color::Green);
 
