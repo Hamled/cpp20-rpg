@@ -9,6 +9,10 @@
 #include <SFML/System/Clock.hpp>
 #include <SFML/Window/Event.hpp>
 
+#include <iterator>
+#include <range/v3/view/zip.hpp>
+#include <range/v3/view/iota.hpp>
+#include <range/v3/iterator/unreachable_sentinel.hpp>
 
 int main([[maybe_unused]] int argc, [[maybe_unused]] const char **argv)
 {
@@ -39,8 +43,31 @@ int main([[maybe_unused]] int argc, [[maybe_unused]] const char **argv)
 
 //    ImGui::ShowDemoWindow();
 
-    ImGui::Begin("Hello, world!");
-    ImGui::Button("Look at this pretty button");
+    ImGui::Begin("The Plan");
+    {
+      using ranges::v3::view::zip;
+      using ranges::v3::view::ints;
+
+      auto plan_items = {
+        "0 : The Plan",
+        "1 : Getting Started",
+        "2 : C++ 20 So Far",
+        "3 : Reading SFML Input States",
+        "4 : Managing Game State",
+        "5 : Making Our Game Testable",
+        "6 : Making Game State Allocator-Aware",
+        "7 : Add Logging To Game Engine",
+        "8 : Draw A Game Map",
+        "9 : Dialog Trees",
+        "10 : Porting from SFML to SDL"
+      };
+      auto CURRENT_STEP = 1u;
+      for(auto &&[item, index] : zip(plan_items, ints(0u, ranges::unreachable)))
+      {
+        auto checked = index < CURRENT_STEP;
+        ImGui::Checkbox(item, &checked);
+      }
+    }
     ImGui::End();
 
     window.clear();
