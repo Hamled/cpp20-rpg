@@ -66,12 +66,8 @@ int main([[maybe_unused]] int argc, [[maybe_unused]] const char **argv)
       auto CURRENT_STEP = 3U;
       for(auto &&[item, index] : zip(plan_items, ints(0u, ranges::unreachable)))
       {
-        std::string text = std::to_string(index);
-        text += " : ";
-        text += item;
-
         auto checked = index < CURRENT_STEP;
-        ImGui::Checkbox(text.c_str(), &checked);
+        ImGui::Checkbox(fmt::format("{} : {}", index, item).c_str(), &checked);
       }
     }
     ImGui::End();
