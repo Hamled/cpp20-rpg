@@ -52,6 +52,7 @@ int main([[maybe_unused]] int argc, [[maybe_unused]] const char **argv)
         "The Plan",
         "Getting Started",
         "Finding Errors As Soon As Possible",
+        "Handling Command Line Parameters",
         "C++ 20 So Far",
         "Reading SFML Input States",
         "Managing Game State",
@@ -62,7 +63,7 @@ int main([[maybe_unused]] int argc, [[maybe_unused]] const char **argv)
         "Dialog Trees",
         "Porting from SFML to SDL"
       };
-      auto CURRENT_STEP = 2U;
+      auto CURRENT_STEP = 3U;
       for(auto &&[item, index] : zip(plan_items, ints(0u, ranges::unreachable)))
       {
         std::string text = std::to_string(index);
