@@ -30,7 +30,7 @@ int main([[maybe_unused]] int argc, [[maybe_unused]] const char **argv)
 
   sf::Clock deltaClock;
   while (window.isOpen()) {
-    sf::Event event;
+    sf::Event event{};
     while (window.pollEvent(event)) {
       ImGui::SFML::ProcessEvent(event);
 
@@ -61,7 +61,7 @@ int main([[maybe_unused]] int argc, [[maybe_unused]] const char **argv)
         "9 : Dialog Trees",
         "10 : Porting from SFML to SDL"
       };
-      auto CURRENT_STEP = 2u;
+      auto CURRENT_STEP = 2U;
       for(auto &&[item, index] : zip(plan_items, ints(0u, ranges::unreachable)))
       {
         auto checked = index < CURRENT_STEP;
