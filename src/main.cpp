@@ -45,8 +45,8 @@ int main([[maybe_unused]] int argc, [[maybe_unused]] const char **argv)
 
     ImGui::Begin("The Plan");
     {
-      using ranges::v3::view::zip;
-      using ranges::v3::view::ints;
+      using ranges::views::zip;
+      using ranges::views::ints;
 
       auto plan_items = {
         "0 : The Plan",
