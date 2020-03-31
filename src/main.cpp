@@ -49,23 +49,27 @@ int main([[maybe_unused]] int argc, [[maybe_unused]] const char **argv)
       using ranges::views::ints;
 
       auto plan_items = {
-        "0 : The Plan",
-        "1 : Getting Started",
-        "2 : C++ 20 So Far",
-        "3 : Reading SFML Input States",
-        "4 : Managing Game State",
-        "5 : Making Our Game Testable",
-        "6 : Making Game State Allocator-Aware",
-        "7 : Add Logging To Game Engine",
-        "8 : Draw A Game Map",
-        "9 : Dialog Trees",
-        "10 : Porting from SFML to SDL"
+        "The Plan",
+        "Getting Started",
+        "C++ 20 So Far",
+        "Reading SFML Input States",
+        "Managing Game State",
+        "Making Our Game Testable",
+        "Making Game State Allocator-Aware",
+        "Add Logging To Game Engine",
+        "Draw A Game Map",
+        "Dialog Trees",
+        "Porting from SFML to SDL"
       };
       auto CURRENT_STEP = 2U;
       for(auto &&[item, index] : zip(plan_items, ints(0u, ranges::unreachable)))
       {
+        std::string text = std::to_string(index);
+        text += " : ";
+        text += item;
+
         auto checked = index < CURRENT_STEP;
-        ImGui::Checkbox(item, &checked);
+        ImGui::Checkbox(text.c_str(), &checked);
       }
     }
     ImGui::End();
