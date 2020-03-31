@@ -51,6 +51,7 @@ int main([[maybe_unused]] int argc, [[maybe_unused]] const char **argv)
       auto plan_items = {
         "The Plan",
         "Getting Started",
+        "Finding Errors As Soon As Possible",
         "C++ 20 So Far",
         "Reading SFML Input States",
         "Managing Game State",
